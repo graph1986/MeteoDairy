@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <Button
+        android:id="@+id/btnCity"
+        android:layout_marginVertical="16dp"
+        android:layout_marginHorizontal="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выбрать город"
+        app:layout_constraintTop_toBottomOf="@+id/txtDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+<LinearLayout
+    android:id="@+id/contButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/btnCity"
+    android:gravity="center"
+    >
+    <Button
+        android:id="@+id/btnYear"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="4dp"
+        android:text="Выбрать год"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/btnMonth"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="4dp"
+        android:text="Выбрать месяц"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+<androidx.core.widget.ContentLoadingProgressBar
+    android:id="@+id/progressBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/Widget.AppCompat.ProgressBar"
+    android:visibility="gone"
+    android:indeterminate="true"
+    app:layout_constraintTop_toBottomOf="@+id/contButton"
+    app:layout_constraintBottom_toBottomOf="parent"
+    />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyleView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/contButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+<TextView
+    android:id="@+id/txtDataEmpty"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:visibility="gone"
+    android:gravity="center"
+    android:text="Наблюдения метео-данных в данный период не велись."
+    app:layout_constraintTop_toBottomOf="@+id/contButton"
+    app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
