@@ -2,6 +2,7 @@ package com.example.meteodairy.ui;
 
 import android.content.Context;
 
+import com.example.meteodairy.models.City;
 import com.example.meteodairy.models.DayMeteo;
 
 import java.util.Calendar;
@@ -11,13 +12,9 @@ public interface MainContract {
     interface View {
         void showError();
 
-        void showWeather(List<DayMeteo> dayMeteoList,Calendar calendar);
+        void showWeather(List<DayMeteo> days,String city);
 
-        void showPickerYear(Calendar calendar);
-
-        void showPickerMonth(Calendar calendar);
-
-        void showPickerCity();
+        void showPickerCity(List<City> cities);
 
         void showDataEmpty(boolean b);
 
@@ -29,16 +26,8 @@ public interface MainContract {
 
         void onStop();
 
-        void onClickYear();
-
-        void onClickMonth();
+        void changeCity(City city);
 
         void onClickCity();
-
-        void changeYear(int year);
-
-        void changeMonth(int month);
-
-        void changeCity();
     }
 }

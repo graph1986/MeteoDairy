@@ -1,75 +1,71 @@
 package com.example.meteodairy.models;
 
-import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+@Entity
 public class DayMeteo {
-   private String numberDay;
-   private String temperature;
-   private String urlCloud;
-   private String urlEffect;
-   private String year;
+    private int numberDay;
+    private String temperature;
+    private String urlCloud;
+    private String urlEffect;
+    private int month;
+    private int year;
+    private int cityId;
 
-    public String getId() {
-        return year+month+numberDay;
+    @NonNull
+    public long getId() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month,numberDay);
+        return calendar.getTimeInMillis();
     }
 
-    private String id;
-    public String getYear() {
+    @PrimaryKey
+    @NonNull
+    public long id;
+
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public String getMonth() {
+    public int getMonth() {
         return month;
     }
 
-    public void setMonth(String month) {
-        this.month = month;
-    }
-
-    private String month;
-
-    public DayMeteo(String numberDay, String temperature, String urlCloud, String urlEffect, String year, String month) {
+    public DayMeteo(int cityId, int numberDay, String temperature, String urlCloud, String urlEffect, int year, int month) {
         this.numberDay = numberDay;
         this.temperature = temperature;
         this.urlCloud = urlCloud;
         this.urlEffect = urlEffect;
         this.year = year;
         this.month = month;
+        this.cityId = cityId;
+        this.id=getId();
     }
 
-    public String getNumberDay() {
+    public int getNumberDay() {
         return numberDay;
-    }
-
-    public void setNumberDay(String numberDay) {
-        this.numberDay = numberDay;
     }
 
     public String getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(String temperature) {
-        this.temperature = temperature;
-    }
-
     public String getUrlCloud() {
         return urlCloud;
-    }
-
-    public void setUrlCloud(String urlCloud) {
-        this.urlCloud = urlCloud;
     }
 
     public String getUrlEffect() {
         return urlEffect;
     }
 
-    public void setUrlEffect(String urlEffect) {
-        this.urlEffect = urlEffect;
+    public int getCityId() {
+        return cityId;
     }
+
 }

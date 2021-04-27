@@ -1,8 +1,10 @@
-package com.example.meteodairy.modules;
+package com.example.meteodairy.di.modules;
 
 import android.content.Context;
 
-import com.example.meteodairy.tools.DBHelper;
+import androidx.room.Room;
+
+import com.example.meteodairy.database.AppDataBase;
 import com.example.meteodairy.network.NetworkClient;
 import com.example.meteodairy.tools.DaysParseHelper;
 import com.example.meteodairy.ui.MainActivity;
@@ -19,11 +21,6 @@ import dagger.android.support.AndroidSupportInjectionModule;
 
 @Module(includes = {AndroidSupportInjectionModule.class})
 abstract public class AppModule {
-    @Singleton
-    @Provides
-    public static DBHelper dbHelper(Context context) {
-        return new DBHelper(context);
-    }
 
     @Singleton
     @Binds
@@ -41,6 +38,13 @@ abstract public class AppModule {
         return new DaysParseHelper();
     }
 
-    @ContributesAndroidInjector(modules = {MainModule.class})
+    @Singleton
+    @Provides
+    public static AppDataBase appDataBase(Context context) {
+        return Room.databaseBuilder(context, AppDataBase.class, "meteoDB").build();
+    }
+
+    @ContributesAndroidInjector
     abstract MainActivity mainActivity();
+
 }

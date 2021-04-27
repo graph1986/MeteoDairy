@@ -2,6 +2,8 @@ package com.example.meteodairy.network;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.inject.Inject;
 
 import okhttp3.OkHttpClient;
@@ -19,6 +21,7 @@ public class NetworkClient {
     public NetworkClient() {
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient transportClient = new OkHttpClient.Builder().addInterceptor(logging).build();
+        transportClient.readTimeoutMillis();
         apiClient = new Retrofit.Builder()
                 .client(transportClient)
                 .baseUrl("https://www.gismeteo.ru/")

@@ -3,7 +3,7 @@ package com.example.meteodairy.di.component;
 import android.content.Context;
 
 import com.example.meteodairy.core.ApplicationMeteoDairy;
-import com.example.meteodairy.modules.AppModule;
+import com.example.meteodairy.di.modules.AppModule;
 
 import javax.inject.Singleton;
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
     <TextView
-        android:id="@+id/txtDate"
+        android:id="@+id/txtCity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -19,34 +19,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Выбрать город"
-        app:layout_constraintTop_toBottomOf="@+id/txtDate"
+        app:layout_constraintTop_toBottomOf="@+id/txtCity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
-<LinearLayout
-    android:id="@+id/contButton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toBottomOf="@+id/btnCity"
-    android:gravity="center"
-    >
-    <Button
-        android:id="@+id/btnYear"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="4dp"
-        android:text="Выбрать год"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-    <Button
-        android:id="@+id/btnMonth"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="4dp"
-        android:text="Выбрать месяц"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</LinearLayout>
 <androidx.core.widget.ContentLoadingProgressBar
     android:id="@+id/progressBar"
     android:layout_width="match_parent"
@@ -54,14 +30,14 @@
     style="@style/Widget.AppCompat.ProgressBar"
     android:visibility="gone"
     android:indeterminate="true"
-    app:layout_constraintTop_toBottomOf="@+id/contButton"
+    app:layout_constraintTop_toBottomOf="@+id/btnCity"
     app:layout_constraintBottom_toBottomOf="parent"
     />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyleView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/contButton"
+        app:layout_constraintTop_toBottomOf="@+id/btnCity"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 <TextView
@@ -71,6 +47,6 @@
     android:visibility="gone"
     android:gravity="center"
     android:text="Наблюдения метео-данных в данный период не велись."
-    app:layout_constraintTop_toBottomOf="@+id/contButton"
+    app:layout_constraintTop_toBottomOf="@+id/btnCity"
     app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
